@@ -22,7 +22,7 @@ function solicitar_filtro(categoria){
 		xhr = new ActiveXObject("Microsoft.XMLHTTP");
 	// Establecer el método (GET), la URL (script PHP y parámetro) y
 	//  si la solicitud es asíncrona (true)
-	xhr.open('GET', 'filtrar.php?id='+categoria, true);
+	xhr.open('GET', 'filtrar.php?categoria='+categoria, true);
 	// Establecer rutina de atención (handler)
 	xhr.onreadystatechange = function()
 	{

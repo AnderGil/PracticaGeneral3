@@ -1,9 +1,9 @@
 <?php	
 	if(isset($_GET['categoria'])
 	{
-		$categoriaFiltrada=$_GET['productos.xml'];
+		$categoriaFiltrada=$_GET['categoria'];
 		// Cargar el fichero XML con la lista de comentarios
-		$productos=simplexml_load_file($CMT_FILE);
+		$productos=simplexml_load_file('productos.xml');
 		// Recorrer la lista de comentarios hasta encontrar el del 'id' dado
 		foreach($productos->producto as $producto)
 		{
