@@ -8,20 +8,6 @@
 
 	</head>
 	<body>
-		<div class="p1">
-			<h1>Wallapop</h1>
-				<p>
-					A continuación se listan los productos:
-				</p>
-		</div>
-		<?php
-			$productos=simplexml_load_file('productos.xml');
-			foreach($productos->producto as $producto){
-				echo('<span class="producto">'.$producto->nombre.'</span>');
-				echo('<img src="'.$producto->foto.'" alt="Foto del producto">');
-				echo('<span class="precio">'.$producto->precio.'</span>');
-			}
-		?>
 		<div class="filtro">
 			<aside>
 				<form>
@@ -34,9 +20,27 @@
 					<input type="radio" name="categoria" id="todos" value="todos" > Ver todos los productos<br>
 
 					<!--El botón de abajo precisa ser del tipo submit para poder enviar el formulario de forma adecuada al servidor. -->
-					<input id="boton" type="button" name="filtrar" value="Filtrar" onclick="return filtrar(this.form)">
+					<input id="boton" type="button" name="filtrar" value="Filtrar" onclick="filtrar(this.form)">
 				</form>
 			</aside>
+		</div>
+
+		<div class="p1">
+			<h1>Wallapop</h1>
+			<p>
+				A continuación se listan los productos:
+			</p>
+		</div>
+		<div id="productos">
+			<?php
+				$productos=simplexml_load_file('productos.xml');
+				foreach($productos->producto as $producto){
+					echo('<span class="producto">'.$producto->nombre.'</span><br>');
+					echo('<img src="'.$producto->foto.'" alt="Foto del producto"><br>');
+					echo('<span class="precio">'.$producto->precio.'</span>');
+					echo('<hr>');
+				}
+			?>
 		</div>
 	</body>
 </html>
