@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="validar_venta.js"></script>
 	</head>
 	<body onload="init()">
-		<form action="procesar.php" method="post">
+		<form action="poner_a_la_venta.php" method="post">
 			<div class="contacto">
 				<p class="p1">Introduce tus datos de contacto (todos los campos son obligatorios):</p>
 				Introduce tu nombre:
@@ -17,14 +17,14 @@
 				Introduce tu correo electrónico:
 				<input type="text" name="correo" maxlength="30"><br>
 				Introduce tu número de teléfono:          
-				<input type="text" name="telefono" maxlength="15"><br>
+				<input type="text" name="telefono" maxlength="9"><br>
 			</div>
 			<div class="info_producto">
 				<p class="p1">Introduce las caracteristicas del producto a vender</p>
 				A que precio quieres venderlo?
-				<input type="text" name="precio" maxlength="15"><br>
+				<input type="text" name="precio" maxlength="15" id="prec"> (En euros: €)<br>
 				Sube aqui las fotos del producto:
-				<span id="multipleFileLabel" style="display:none">Multiple </span> 
+				<span id="multipleFileLabel" style="display:none"> </span> 
 				<input id="archivos" type="file" name="img" multiple="multiple"><br/>
 				A que categoria pertenece?<br> 
 				<input type="radio" id="1" name="categoria" value="viento" > Viento<br>
