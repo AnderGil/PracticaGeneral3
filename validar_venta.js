@@ -1,3 +1,41 @@
+
+var lista_De_Archivos = [];
+
+//https://medium.com/typecode/a-strategy-for-handling-multiple-file-uploads-using-javascript-eb00a77e15f
+function manejarArchivos() {
+
+  var fileInput = document.getElementById('archivos');
+  var fileListDisplay = document.getElementById('file-list-display');
+  
+  var fileList = [];
+  var renderFileList;
+
+  lista_De_Archivos = [];
+  
+  fileInput.addEventListener('change', function (evnt) {
+ 		fileList = [];
+ 		//alert("AUN NO HA ENTRADO...");
+  	for (var i = 0; i < fileInput.files.length; i++) {
+  		//alert("PASA");
+  		//alert("Archivo " + i + " :" + fileInput.files[i]);
+    	fileList.push(fileInput.files[i]);
+    	lista_De_Archivos.push(fileInput.files[i]);
+    }
+    alert(lista_De_Archivos.length);
+    renderFileList();
+  });
+  
+  renderFileList = function () {
+  	fileListDisplay.innerHTML = '';
+  	//var index = 0;
+    fileList.forEach(function (file, index) {
+    	var fileDisplayEl = document.createElement('p');
+      fileDisplayEl.innerHTML = (index + 1) + ': ' + file.name;
+      fileListDisplay.appendChild(fileDisplayEl);
+    });
+  }
+}
+
 function validar(formulario){
 
 	var nombre = formulario.nombre.value;
@@ -58,6 +96,39 @@ function validar(formulario){
 
 		if(document.getElementById("archivos").value != "") {
 	   		// you have a file
+	   		alert("lista_De_Archivos.length");
+	   		for (var i = 0; i < lista_De_Archivos.length; i++){
+	   			var archivo_concreto = lista_De_Archivos[i].split(".");
+	   			alert(archivo_concreto[archivo_concreto.length - 1]);
+	   			if(archivo_concreto[archivo_concreto.length - 1] == ".jpg"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".jpeg"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".png"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".gif"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".tiff"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".tif"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".bmp"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".psd"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".pdf"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".eps"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".pic"){
+	   				null;
+	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".RAW"){
+	   				null;
+	   			} else {
+	   				alert("Uno de los archivos no es una imagen, solo puedes subir imagenes (Formatos usuales: .png, .jpg, .jpeg, ...).");
+	   				return false;
+	   			}
+	   		}
 
 	   		if(document.getElementById("1").checked || document.getElementById("2").checked || document.getElementById("3").checked
 	   		 || document.getElementById("4").checked || document.getElementById("5").checked){
