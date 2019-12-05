@@ -3,20 +3,23 @@ $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $telefono=$_POST['telefono'];
 $img=$_POST['img'];
+$precio=$_POST['precio'];
 $categoria=$_POST['categoria'];
 $descripcion=$_POST['descripcion'];
-$numimg=1;//TODO:mirar cuantos archivos se han subido
+$numImg=1;//TODO:mirar cuantos archivos se han subido
+
 $fecha=date('r');
 
 $productos=simplexml_load_file('productos.xml');
 //TODO: guardar imagen
-$ult_id = $visitas->ult_id;
+$ult_id = $productos['ult_id'];
 $ult_id = $ult_id +1;
-$visitas->ult_id=$ult_id;
+$productos['ult_id']=$ult_id;
 
-$nuevo = $visitas->addChild('producto');
+$nuevo = $productos->addChild('producto');
 $nuevo->id = $ult_id;
-$nuevo->categoria = $categoria;
+$nuevo['categoria'] = $categoria;
+
 $nuevo->addChild('nombre',$nombre);
 $nuevo->addChild('descripcion',$descripcion);
 $nuevo->addChild('precio',$precio);

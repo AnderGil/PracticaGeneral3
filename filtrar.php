@@ -1,5 +1,5 @@
 <?php	
-	if(isset($_GET['categoria'])
+	if(isset($_GET['categoria']))
 	{
 		$categoriaFiltrada=$_GET['categoria'];
 		// Cargar el fichero XML con la lista de comentarios
@@ -7,7 +7,7 @@
 		// Recorrer la lista de comentarios hasta encontrar el del 'id' dado
 		foreach($productos->producto as $producto)
 		{
-			if($producto[categoria] == $categoriaFiltrada or $categoriaFiltrada=="todos")
+			if($producto['categoria'] == $categoriaFiltrada or $categoriaFiltrada=="todos")
 			{
 				echo('<span class="producto">'.$producto->nombre.'</span><br>');
 				echo('<img src="'.$producto->foto.'" alt="Foto del producto"><br>');

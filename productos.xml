@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE productos SYSTEM "productos.dtd">
-<productos ultid="0">
+<productos ult_id="2">
 
-</productos>
+<producto categoria="cuerda"><id>1</id><nombre>Ander</nombre><descripcion>ewfewfe</descripcion><precio>30</precio><email>moroander@gmail.com</email><telefono>6888568</telefono><fecha>Wed, 06 Nov 2019 17:51:52 +0000</fecha><numImg>1</numImg></producto><producto categoria="viento"><id>2</id><nombre>Viento</nombre><descripcion>VIENTO</descripcion><precio>44</precio><email>moroander@gmail.com</email><telefono>2322424</telefono><fecha>Wed, 06 Nov 2019 18:24:37 +0000</fecha><numImg>1</numImg></producto></productos>
