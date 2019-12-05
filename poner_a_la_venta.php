@@ -7,6 +7,7 @@ $precio=$_POST['precio'];
 $categoria=$_POST['categoria'];
 $descripcion=$_POST['descripcion'];
 $numImg=1;//TODO:mirar cuantos archivos se han subido
+
 $fecha=date('r');
 
 $productos=simplexml_load_file('productos.xml');
@@ -18,6 +19,7 @@ $productos['ult_id']=$ult_id;
 $nuevo = $productos->addChild('producto');
 $nuevo->id = $ult_id;
 $nuevo['categoria'] = $categoria;
+
 $nuevo->addChild('nombre',$nombre);
 $nuevo->addChild('descripcion',$descripcion);
 $nuevo->addChild('precio',$precio);
