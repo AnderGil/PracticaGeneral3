@@ -27,6 +27,7 @@
     </pre>
 	<body>
 <?php
+
     $username=$_POST['username'];
     $correo=$_POST['correo'];
     $telefono=$_POST['telefono'];
@@ -64,6 +65,9 @@
 
     # si hay algun archivo que subir
     if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"][0])
+{
+	$numImg=count($_FILES["archivo"]["name"]);
+
     {
         # recorremos todos los arhivos que se han subido
         for($i=0;$i<count($_FILES["archivo"]["name"]);$i++)
