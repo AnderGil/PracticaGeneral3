@@ -1,12 +1,11 @@
 <!ELEMENT productos (producto)*>
 <!ATTLIST productos ult_id IDREF #REQUIRED>
-<!ELEMENT producto (username, productname, descripcion, foto, precio, email, telefono,fecha,numImg)>
+<!ELEMENT producto (username, productname, descripcion, precio, email, telefono,fecha,numImg)>
 <!ATTLIST producto id ID #REQUIRED>
 <!ATTLIST producto categoria (percusion | viento | cuerda | electrico | complementos)>
 <!ELEMENT username (#PCDATA)>
 <!ELEMENT productname (#PCDATA)>
 <!ELEMENT descripcion (#PCDATA)>
-<!ELEMENT foto (#PCDATA)>
 <!ELEMENT precio (#PCDATA)>
 <!ELEMENT email (#PCDATA)>
 <!ELEMENT telefono (#PCDATA)>
