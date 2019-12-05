@@ -1,7 +1,6 @@
 
-var lista_De_Archivos = [];
+var lista_De_Archivos;
 
-//https://medium.com/typecode/a-strategy-for-handling-multiple-file-uploads-using-javascript-eb00a77e15f
 function manejarArchivos() {
 
   var fileInput = document.getElementById('archivos');
@@ -14,20 +13,19 @@ function manejarArchivos() {
   
   fileInput.addEventListener('change', function (evnt) {
  		fileList = [];
- 		//alert("AUN NO HA ENTRADO...");
+ 		lista_De_Archivos = [];
+ 		
   	for (var i = 0; i < fileInput.files.length; i++) {
-  		//alert("PASA");
-  		//alert("Archivo " + i + " :" + fileInput.files[i]);
-    	fileList.push(fileInput.files[i]);
+  		fileList.push(fileInput.files[i]);
     	lista_De_Archivos.push(fileInput.files[i]);
     }
-    alert(lista_De_Archivos.length);
+    
     renderFileList();
   });
   
   renderFileList = function () {
   	fileListDisplay.innerHTML = '';
-  	//var index = 0;
+  	
     fileList.forEach(function (file, index) {
     	var fileDisplayEl = document.createElement('p');
       fileDisplayEl.innerHTML = (index + 1) + ': ' + file.name;
@@ -44,118 +42,131 @@ function validar(formulario){
 	var precio = formulario.precio.value;
 	var descripcion = formulario.descripcion.value;
 
-	if(nombre.length == 0 || correo.length == 0 || tel.length == 0 || descripcion.length == 0 || precio == 0){
+	var mensaje = document.getElementById('resultado');
+	mensaje.innerHTML = '';
 
-		alert("No olvide rellenar los campos, todos son obligatorios y al menos se debe subir una imagen del producto.");
+	//COMPRUEBA SI LOS CAMPOS ESTAN RELLENOS
+
+	if(nombre.length == 0 || correo.length == 0 || tel.length == 0 ||
+		 descripcion.length == 0 || precio == 0 || lista_De_Archivos.length == 0){
+
+		mensaje.innerHTML = "No olvide rellenar los campos, todos son obligatorios y al menos se debe subir una imagen del producto.";
+		alert("Condiciones no cumplidas.");
 		return false;
 
-	} else {
-
-		if(isNaN(tel)){
-			alert("El número de teléfono es, en efecto, un número, debe de rellenar el campo con un número valido.");
-			return false;
-		}
-		buen_tel = tel.split(".");
-		if(buen_tel.length == 2){
-			alert("El número de teléfono es incorrecto.");
-			return false;
-		}
-
-		if(isNaN(precio)){
-			alert("El precio ha de ser un número.");
-			return false;
-		}
-		var dinero = precio.split(".");
+	}
+//	COMPRUEBA SI EL TELEFONO ES UN NUMERO
+	if(isNaN(tel)){
+		mensaje.innerHTML = "El número de teléfono es, en efecto, un número, debe de rellenar el campo con un número valido.";
+		alert("Condiciones no cumplidas.");
+		return false;
+	}
+//	COMPRUEBA QUE EL TELEFONO SEA UN NUMERO NATURAL
+	buen_tel = tel.split(".");
+	if(buen_tel.length == 2){
+		mensaje.innerHTML = "No existen teléfonos decimales.";
+		alert("Condiciones no cumplidas.");
+		return false;
+	}
+	if(tel < 0) {
+		mensaje.innerHTML = "No existen teléfonos negativos.";
+		alert("Condiciones no cumplidas.");
+		return false;
+	}
+//	alert("03");
+	if(isNaN(precio)){
+		mensaje.innerHTML = "El precio ha de ser un número.";
+		alert("Condiciones no cumplidas.");
+		return false;
+	}
+	//alert("04");
+	var dinero = precio.split(".");
+	if (dinero.length > 1){
 		if(dinero[1].length > 2){
-			alert("Los euros solo usan 2 decimales.");
+			mensaje.innerHTML = "Los euros solo usan 2 decimales.";
+			alert("Condiciones no cumplidas.");
 			return false;
 		}
-
-		if(tel.length != 9){
-			alert("El número de teléfono ha de ser de 9 dígitos, sin usar prefijo.");
-			return false;
-		}
-
-		var sin_arroba = correo.split("@");
-		if(sin_arroba.length != 2){
-			alert("El correo ha de tener una única '@'");
+	}
+	//alert("05");
+	if(tel.length != 9){
+		mensaje.innerHTML = "El número de teléfono ha de ser de 9 dígitos, sin usar prefijo.";
+		alert("Condiciones no cumplidas.");
+		return false;
+	}
+	//alert("06");
+	var sin_arroba = correo.split("@");
+	if(sin_arroba.length != 2){
+		mensaje.innerHTML = "El correo ha de tener una única '@'";
+		alert("Condiciones no cumplidas.");
+		return false;
+	} else {
+		if(sin_arroba[0].length == 0 || sin_arroba[1].length == 0){
+			mensaje.innerHTML = "El correo es incorrecto.";
+			alert("Condiciones no cumplidas.");
 			return false;
 		} else {
-			if(sin_arroba[0].length == 0 || sin_arroba[1].length == 0){
-				alert("El correo es incorrecto.");
+			var sin_puntos = correo.split(".");
+			var chars = sin_puntos[sin_puntos.length - 1]; //EN PRINCIPIO GUARDA EL NUMERO DE CARACTERES DESPUES DEL ULTIMO PUNTO
+			if(chars.length < 2){
+				mensaje.innerHTML = "El dominio del correo (parte que está después del último punto) debe de tener al menos 2 caracteres.";
+				alert("Condiciones no cumplidas.");
 				return false;
 			} else {
-				var sin_puntos = correo.split(".");
-				var num_chars = sin_puntos[sin_puntos.length - 1].length; //EN PRINCIPIO GUARDA EL NUMERO DE CARACTERES DESPUES DEL ULTIMO PUNTO
-				if(num_chars < 2){
-					alert("El dominio del correo (parte que está después del último punto) debe de tener al menos 2 caracteres.");
-					return false;
+				for (var i = 0; i < chars.length; i++){
+					if(!isNaN(chars[i])){
+						mensaje.innerHTML = "La parte final del correo no puede contener numeros, solo caracteres (por ejemplo: .com)";
+						alert("Condiciones no cumplidas.");
+						return false;
+					}
 				}
 			}
 		}
+	}
 
-		if(document.getElementById("archivos").value != "") {
-	   		// you have a file
-	   		alert("lista_De_Archivos.length");
-	   		for (var i = 0; i < lista_De_Archivos.length; i++){
-	   			var archivo_concreto = lista_De_Archivos[i].split(".");
-	   			alert(archivo_concreto[archivo_concreto.length - 1]);
-	   			if(archivo_concreto[archivo_concreto.length - 1] == ".jpg"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".jpeg"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".png"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".gif"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".tiff"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".tif"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".bmp"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".psd"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".pdf"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".eps"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".pic"){
-	   				null;
-	   			} else if(archivo_concreto[archivo_concreto.length - 1] == ".RAW"){
-	   				null;
-	   			} else {
-	   				alert("Uno de los archivos no es una imagen, solo puedes subir imagenes (Formatos usuales: .png, .jpg, .jpeg, ...).");
-	   				return false;
-	   			}
-	   		}
+	
+	var archivo_concreto;
+	
+	for (var i = 0; i < lista_De_Archivos.length; i++){
+		//alert(i);
+		archivo_concreto = (lista_De_Archivos[i].name).split(".");
+		//alert("HOLA");
+		//alert("archivo_concreto.length");
+		if(archivo_concreto.length > 1){
+			//alert(archivo_concreto[archivo_concreto.length - 1]);
+			if(archivo_concreto[archivo_concreto.length - 1] == "jpg"){
+				null;
+			} else if(archivo_concreto[archivo_concreto.length - 1] == "jpeg"){
+				null;
+			} else if(archivo_concreto[archivo_concreto.length - 1] == "png"){
+				null;
+			} else if(archivo_concreto[archivo_concreto.length - 1] == "gif"){
+				null;
+			} else if(archivo_concreto[archivo_concreto.length - 1] == "pjpeg"){
+				null;
+			} else if(archivo_concreto[archivo_concreto.length - 1] == "pjpg"){
+				null;
+			} else {
+				mensaje.innerHTML = "Uno de los archivos no es una imagen, solo puedes subir imagenes (Formatos validos: .png, .jpg, .jpeg, .gif, .pjpg, .pjpeg).";
+				return false;
+			}
+		}
+	}
 
-	   		if(document.getElementById("1").checked || document.getElementById("2").checked || document.getElementById("3").checked
-	   		 || document.getElementById("4").checked || document.getElementById("5").checked){
+	if(document.getElementById("1").checked || document.getElementById("2").checked || document.getElementById("3").checked
+	 || document.getElementById("4").checked || document.getElementById("5").checked){
 
-	   			alert("Todo OK...");
-	   			return true;
+		return true;
 
-	   		} else {
-				
-	   			alert("no se ha seleccionado ningun tipo de instrumento!");
-	   			return false;
-
-	   		}
-
-		} else {
-
-			alert("NO HAY ARCHIVO");
-			return false;
-
-		}	
+	} else {
+	
+		mensaje.innerHTML = "no se ha seleccionado ningun tipo de instrumento!";
+		alert("Condiciones no cumplidas.");
+		return false;
 
 	}
 
 }
-
-
-
 
 function supportMultiple() {
     //do I support input type=file/multiple
@@ -165,6 +176,7 @@ function supportMultiple() {
 }
 
 function init() {
+	lista_De_Archivos = [];
     if(supportMultiple()) {
         document.querySelector("#multipleFileLabel").setAttribute("style","");
     }
