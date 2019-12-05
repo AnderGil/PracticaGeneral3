@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE productos SYSTEM "productos.dtd">
-
-<productos ult_id="0">
-</productos>
+<productos ult_id="4">
+<producto id="1" categoria="viento"><username>asdf</username><productname>sdf</productname><descripcion>asdf</descripcion><precio>fasdf</precio><email>asdfa</email><telefono>sdfa</telefono><fecha>Thu, 05 Dec 2019 14:59:24 +0000</fecha><numImg>1</numImg></producto><producto id="2" categoria="viento"><username>asdf</username><productname>sdf</productname><descripcion>asdf</descripcion><precio>fasdf</precio><email>asdfa</email><telefono>sdfa</telefono><fecha>Thu, 05 Dec 2019 14:59:35 +0000</fecha><numImg>1</numImg></producto><producto id="3" categoria="viento"><username>asdf</username><productname>sdf</productname><descripcion>asdf</descripcion><precio>fasdf</precio><email>asdfa</email><telefono>sdfa</telefono><fecha>Thu, 05 Dec 2019 14:59:52 +0000</fecha><numImg>1</numImg></producto><producto id="4" categoria="viento"><username>asdf</username><productname>sdf</productname><descripcion>asdf</descripcion><precio>fasdf</precio><email>asdfa</email><telefono>sdfa</telefono><fecha>Thu, 05 Dec 2019 14:59:58 +0000</fecha><numImg>1</numImg></producto></productos>
