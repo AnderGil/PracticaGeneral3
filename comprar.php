@@ -20,7 +20,9 @@
 					<input type="radio" name="categoria" id="todos" value="todos" > Ver todos los productos<br>
 
 					<!--El botón de abajo precisa ser del tipo submit para poder enviar el formulario de forma adecuada al servidor. -->
-					<input id="boton" type="button" name="filtrar" value="Filtrar" onclick="filtrar(this.form)">
+					<a href="javascript:filtrar(this.form)">
+						<input id="boton" type="button" name="filtrar" value="Filtrar">
+					</a>
 				</form>
 			</aside>
 		</div>

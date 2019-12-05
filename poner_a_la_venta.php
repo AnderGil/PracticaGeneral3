@@ -12,10 +12,13 @@ $username=$_POST['username'];
 $correo=$_POST['correo'];
 $telefono=$_POST['telefono'];
 $img=$_POST['img'];
+$precio=$_POST['precio'];
 $categoria=$_POST['categoria'];
 $descripcion=$_POST['descripcion'];
+
 $precio=$_POST['precio'];
 $productname=$_POST['productname'];
+
 $fecha=date('r');
 $numImg=0;
 
@@ -28,8 +31,10 @@ $productos['ult_id']=$ult_id;
 $nuevo = $productos->addChild('producto');
 $nuevo->id = $ult_id;
 $nuevo['categoria'] = $categoria;
+
 $nuevo->addChild('username',$username);
 $nuevo->addChild('productname', $productname);
+
 $nuevo->addChild('descripcion',$descripcion);
 $nuevo->addChild('precio',$precio);
 $nuevo->addChild('email',$correo);
