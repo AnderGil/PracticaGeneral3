@@ -29,7 +29,7 @@ $ult_id = $ult_id +1;
 $productos['ult_id']=$ult_id;
 
 $nuevo = $productos->addChild('producto');
-$nuevo->id = $ult_id;
+$nuevo['id'] = $ult_id;
 $nuevo['categoria'] = $categoria;
 
 $nuevo->addChild('username',$username);
