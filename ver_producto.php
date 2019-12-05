@@ -2,6 +2,7 @@
 $id=$_POST['product_id'];
 
 $productos=simplexml_load_file('productos.xml');
+$direccion="var/www/images/";
 
 ?>
 
@@ -23,7 +24,10 @@ $productos=simplexml_load_file('productos.xml');
 						echo('<h1>Detalles del producto:</h1><br>');
 						echo('</div>');
 						echo('<span class="producto">'.$producto->productname.'</span><br>');
-						echo('<img src="'.$producto->foto.'" alt="Foto del producto"><br>');
+						for($i=0; $i < $producto->numImg; $i++)
+						{
+							echo('<img src="'.$direccion.$producto['id']."+".$i.'" alt="Foto del producto"><br>');
+						}
 						echo('<span class="descripcion">'.$producto->descripcion.'</span><br>');
 						echo('<span class="precio"> precio :'.$producto->precio.' €</span><hr>');
 						echo('<p> Nombre del vendedor del producto: '.$producto->username.'</p>');

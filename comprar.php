@@ -36,10 +36,11 @@
 				A continuación se listan los productos:
 			</p>
 			<?php
+				$direccion="var/www/images/";
 				$productos=simplexml_load_file('productos.xml');
 				foreach($productos->producto as $producto){
 					echo('<span class="producto">'.$producto->productname.'</span><br>');
-					echo('<img src="'.$producto->foto.'" alt="Foto del producto"><br>');
+					echo('<img src="'.$direccion.$producto['id'].'+0" alt="Foto del producto"><br>');
 					echo('<span class="precio"> precio :'.$producto->precio.' €</span>');
 					echo('<form action="ver_producto.php" method="post">');
 					echo('<input type="hidden" name="product_id" value="'.$producto['id'].'">');
