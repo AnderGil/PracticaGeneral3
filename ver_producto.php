@@ -2,7 +2,7 @@
 $id=$_POST['product_id'];
 
 $productos=simplexml_load_file('productos.xml');
-$direccion="var/www/images/";
+$direccion="images/";
 
 ?>
 
@@ -29,10 +29,10 @@ $direccion="var/www/images/";
 							echo('<img src="'.$direccion.$producto['id']."+".$i.'" alt="Foto del producto"><br>');
 						}
 						echo('<span class="descripcion">'.$producto->descripcion.'</span><br>');
-						echo('<span class="precio"> precio :'.$producto->precio.' €</span><hr>');
+						echo('<span class="precio"> precio: '.$producto->precio.' €</span><hr>');
 						echo('<p> Nombre del vendedor del producto: '.$producto->username.'</p>');
 						echo('<p> Telefono del vendedor: '.$producto->telefono.'</p>');
-						echo('<p> Correco electrónico del vendedor: '.$producto->email.'</p>');
+						echo('<p> Correo electrónico del vendedor: '.$producto->email.'</p>');
 						echo('<p> Si está interesado en este producto, por favor póngase en contacto con el vendedor de éste.<p><hr>');
 					}
 				}

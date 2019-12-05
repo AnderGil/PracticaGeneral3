@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="estilo.css">
 	</head>
+<!--
     <pre>
         <?php
         function br() { echo '<br />'; }
@@ -25,6 +26,7 @@
         print_r($_REQUEST);
         ?>  
     </pre>
+-->
 	<body>
 <?php
 
@@ -48,7 +50,7 @@
     $productos['ult_id']=$ult_id;
 
     $nuevo = $productos->addChild('producto');
-    $nuevo["id"] = $ult_id;
+    $nuevo['id'] = $ult_id;
     $nuevo['categoria'] = $categoria;
 
     $nuevo->addChild('username',$username);
@@ -60,24 +62,28 @@
     $nuevo->addChild('telefono',$telefono);
     $nuevo->addChild('fecha',$fecha);
 
+
+
+
     # definimos la carpeta destino
     $carpetaDestino="images/";
 
     # si hay algun archivo que subir
-    if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"][0])
-{
-	$numImg=count($_FILES["archivo"]["name"]);
+    if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"][0]){
 
-    {
+	   $numImg=count($_FILES["archivo"]["name"]);
+
         # recorremos todos los arhivos que se han subido
-        for($i=0;$i<count($_FILES["archivo"]["name"]);$i++)
+        for($i=0;$i<$numImg;$i++)
         {
+            $oldname = $_FILES["archivo"]["name"][$i];
             # si es un formato de imagen
             if($_FILES["archivo"]["type"][$i]=="image/jpeg" || $_FILES["archivo"]["type"][$i]=="image/pjpeg" || $_FILES["archivo"]["type"][$i]=="image/gif" || $_FILES["archivo"]["type"][$i]=="image/png")
             {
                 # si exsite la carpeta o se ha creado
                 if(file_exists($carpetaDestino) || @mkdir($carpetaDestino))
                 {	
+                    
                 	# cambiamos el nombre a productid+i
                 	$_FILES["archivo"]["name"][$i]=$ult_id."+".$i;
                 	
@@ -85,17 +91,15 @@
                     $destino=$carpetaDestino.$_FILES["archivo"]["name"][$i];
  
                     # movemos el archivo
-                    if(@move_uploaded_file($origen, $destino))
-                    {
-                        echo "<br>".$_FILES["archivo"]["name"][$i]." movido correctamente";
-                    }else{
-                        echo "<br>No se ha podido mover el archivo: ".$_FILES["archivo"]["name"][$i];
+                    if(!@move_uploaded_file($origen, $destino))
+                    {                        
+                        echo "<br> Error en el servidor con el archivo:".$oldname;
                     }
                 }else{
-                    echo "<br>No se ha podido crear la carpeta: ".$carpetaDestino;
+                    echo "<br> Debido a un problema en el servidor, no se han podido guardar las imagenes: ";
                 }
             }else{
-                echo "<br>".$_FILES["archivo"]["name"][$i]." - NO es imagen jpg, png o gif";
+                echo "<br>".$oldname." - NO es imagen jpg, png o gif. Por lo que ha sido rechazado por el servidor";
             }
         }
     }else{
@@ -103,9 +107,11 @@
     }
     $nuevo->addChild('numImg',$numImg);
     $productos->asXML('productos.xml');
+
+    echo "<br> <h2>Información guardada.</h2>";
 ?>
 		<div class="title">
-			<h1>El producto ya esta disponible en la tienda</h1>
+			<h1>El producto ya esta disponible en la tienda.</h1>
 			<a href="index.html">Haz click aqui para volver al inicio.</a>
 		</div>
 	</body>
