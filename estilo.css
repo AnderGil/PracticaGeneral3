@@ -31,3 +31,17 @@ body{
 #file-list-display{
 	margin-left: 20px;
 }
+
+#volver_indice{
+	font-size: 20px;
+	margin-left: 550px;
+}
+
+#tit_vender{
+	font-size: 40px;
+	margin-bottom: -60px;
+}
+
+#resultado{
+	color: red;
+}

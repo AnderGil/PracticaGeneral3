@@ -51,32 +51,32 @@ function validar(formulario){
 	if(nombre.length == 0 || correo.length == 0 || tel.length == 0 || nomproducto.length == 0 ||
 		 descripcion.length == 0 || precio == 0 || lista_De_Archivos.length == 0){
 
-		mensaje.innerHTML = "No olvide rellenar los campos, todos son obligatorios y al menos se debe subir una imagen del producto.";
+		mensaje.innerHTML = "<br>No olvide rellenar los campos, todos son obligatorios y al menos se debe subir una imagen del producto.";
 		alert("Condiciones no cumplidas.");
 		return false;
 
 	}
 //	COMPRUEBA SI EL TELEFONO ES UN NUMERO
 	if(isNaN(tel)){
-		mensaje.innerHTML = "El número de teléfono es, en efecto, un número, debe de rellenar el campo con un número valido.";
+		mensaje.innerHTML = "<br>El número de teléfono es, en efecto, un número, debe de rellenar el campo con un número valido.";
 		alert("Condiciones no cumplidas.");
 		return false;
 	}
 //	COMPRUEBA QUE EL TELEFONO SEA UN NUMERO NATURAL
 	buen_tel = tel.split(".");
 	if(buen_tel.length == 2){
-		mensaje.innerHTML = "No existen teléfonos decimales.";
+		mensaje.innerHTML = "<br>No existen teléfonos decimales.";
 		alert("Condiciones no cumplidas.");
 		return false;
 	}
 	if(tel < 0) {
-		mensaje.innerHTML = "No existen teléfonos negativos.";
+		mensaje.innerHTML = "<br>No existen teléfonos negativos.";
 		alert("Condiciones no cumplidas.");
 		return false;
 	}
 //	alert("03");
 	if(isNaN(precio)){
-		mensaje.innerHTML = "El precio ha de ser un número.";
+		mensaje.innerHTML = "<br>El precio ha de ser un número.";
 		alert("Condiciones no cumplidas.");
 		return false;
 	}
@@ -84,47 +84,47 @@ function validar(formulario){
 	var dinero = precio.split(".");
 	if (dinero.length > 1){
 		if(dinero[1].length > 2){
-			mensaje.innerHTML = "Los euros solo usan 2 decimales.";
+			mensaje.innerHTML = "<br>Los euros solo usan 2 decimales.";
 			alert("Condiciones no cumplidas.");
 			return false;
 		}
 	}
 	//alert("05");
 	if(tel.length != 9){
-		mensaje.innerHTML = "El número de teléfono ha de ser de 9 dígitos, sin usar prefijo.";
+		mensaje.innerHTML = "<br>El número de teléfono ha de ser de 9 dígitos, sin usar prefijo.";
 		alert("Condiciones no cumplidas.");
 		return false;
 	}
 	//alert("06");
 	var sin_arroba = correo.split("@");
 	if(sin_arroba.length != 2){
-		mensaje.innerHTML = "El correo ha de tener una única '@'";
+		mensaje.innerHTML = "<br>El correo ha de tener una única '@'";
 		alert("Condiciones no cumplidas.");
 		return false;
 	}
 	if(sin_arroba[0].length == 0 || sin_arroba[1].length == 0){
-		mensaje.innerHTML = "El correo es incorrecto.";
+		mensaje.innerHTML = "<br>El correo es incorrecto.";
 		alert("Condiciones no cumplidas.");
 		return false;
 	}
 	var sin_puntos = correo.split(".");
 	if(sin_puntos.length > 1){
-		var chars = sin_puntos[sin_puntos.length - 1]; //EN PRINCIPIO GUARDA EL NUMERO DE CARACTERES DESPUES DEL ULTIMO PUNTO
+		var chars = sin_puntos[sin_puntos.length - 1]; 
 		if(chars.length < 2){
-			mensaje.innerHTML = "El dominio del correo (parte que está después del último punto) debe de tener al menos 2 caracteres.";
+			mensaje.innerHTML = "<br>El dominio del correo (parte que está después del último punto) debe de tener al menos 2 caracteres.";
 			alert("Condiciones no cumplidas.");
 			return false;
 		} else {
 			for (var i = 0; i < chars.length; i++){
 				if(!isNaN(chars[i])){
-					mensaje.innerHTML = "La parte final del correo no puede contener numeros, solo caracteres (por ejemplo: .com)";
+					mensaje.innerHTML = "<br>La parte final del correo no puede contener numeros, solo caracteres (por ejemplo: .com)";
 					alert("Condiciones no cumplidas.");
 					return false;
 				}
 			}
 		}
 	} else {
-		mensaje.innerHTML = "Falta la última parte del correo: .com, .es, etc.";
+		mensaje.innerHTML = "<br>Falta la última parte del correo: .com, .es, etc.";
 		alert("Condiciones no cumplidas.");
 		return false;
 	}
@@ -154,7 +154,7 @@ function validar(formulario){
 				null;
 			} else {
 				alert("Condiciones no cumplidas.")
-				mensaje.innerHTML = "Uno de los archivos no es una imagen, solo puedes subir imagenes (Formatos validos: .png, .jpg, .jpeg, .gif, .pjpg, .pjpeg).";
+				mensaje.innerHTML = "<br>Uno de los archivos no es una imagen, solo puedes subir imagenes (Formatos validos: .png, .jpg, .jpeg, .gif, .pjpg, .pjpeg).";
 				return false;
 			}
 		}
@@ -167,7 +167,7 @@ function validar(formulario){
 
 	} else {
 	
-		mensaje.innerHTML = "no se ha seleccionado ningun tipo de instrumento!";
+		mensaje.innerHTML = "<br>No se ha seleccionado ningun tipo de instrumento!";
 		alert("Condiciones no cumplidas.");
 		return false;
 

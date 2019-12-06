@@ -2,13 +2,15 @@
 <!--Ander Gil, Aitor Gonzalez-->
 <html id="VENDER_HTML">
 	<head>
-		<title>Formulario</title>
+		<title>Vender producto.</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="estilo.css">
 		<!-- No olvides poner el nombre de tu fichero javascript en el atributo 'src' de la etiqueta 'script' -->
 		<script type="text/javascript" src="validar_venta.js"></script>
 	</head>
 	<body onload="init()">
+		<div id="tit_vender">¡Pon tu producto a la venta!</div><br><a id="volver_indice" href="index.html">Volver</a><br>
+		<br><div id="resultado"></div>
 		<form action="poner_a_la_venta.php" id="form" method="post" enctype="multipart/form-data">
 			<div class="contacto">
 				<p class="p1">Introduce tus datos de contacto (todos los campos son obligatorios):</p>
@@ -55,8 +57,5 @@
 				<input id="boton" type="submit" name="enviarForm" value="Enviar" onclick="return validar(this.form)">
 			</div>
 		</form>
-		<br>
-		<div id="resultado"></div>
-		<a href="index.html">Para volver a la página de inicio clicar aquí.</a><br>
 	</body>
 </html>
