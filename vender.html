@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="validar_venta.js"></script>
 	</head>
 	<body onload="init()">
-		<form action="poner_a_la_venta.php" method="post" enctype="multipart/form-data">
+		<form action="poner_a_la_venta.php" id="form" method="post" enctype="multipart/form-data">
 			<div class="contacto">
 				<p class="p1">Introduce tus datos de contacto (todos los campos son obligatorios):</p>
 				Introduce tu nombre:
@@ -17,29 +17,32 @@
 				Introduce tu correo electrónico:
 				<input type="text" name="correo" maxlength="30"><br>
 				Introduce tu número de teléfono:          
-				<input type="text" name="telefono" maxlength="15"><br>
+				<input type="text" name="telefono" maxlength="9"><br>
 			</div>
 			<div class="info_producto">
 				<p class="p1">Introduce las caracteristicas del producto a vender</p>
 				Nombre del producto:
 				<input type="text" name="productname" maxlength="15"><br>
 				A que precio quieres venderlo?
-				<input type="text" name="precio" maxlength="15"><br>
+				<input type="text" name="precio" maxlength="15" id="prec"> (En euros: €)<br>
 				Sube aqui las fotos del producto:
-				<span id="multipleFileLabel" style="display:none">Multiple </span> 
-				<input id="file" type="file" name="archivo[]" multiple="multiple"><br/>
+				<span id="multipleFileLabel" style="display:none"> </span> 
+				<input id="file" type="file" name="archivo[]" multiple="multiple" onclick="manejarArchivos()"><br/>
+				<br>Has elegido los siguientes archivos para subirlos:<br>
+				<div id='file-list-display'></div><br>
 				A que categoria pertenece?<br> 
 				<input type="radio" id="1" name="categoria" value="viento" > Viento<br>
 				<input type="radio" id="2" name="categoria" value="percusion" > Percusion<br>
 				<input type="radio" id="3" name="categoria" value="cuerda" > Cuerda<br>
 				<input type="radio" id="4" name="categoria" value="electrico" > Electrico<br>
 				<input type="radio" id="5" name="categoria" value="complementos" > Complementos<br>
+				<br>
 				Descripción:
 				
 			</div>
 
 			<div id="descripcion">
-				<textarea id="textarea" rows="10" cols="100" name="descripcion" placeholder="Escribe aquí tu descripcion:"></textarea>
+				<textarea id="textarea" rows="4" cols="120" name="descripcion" placeholder="Escribe aquí tu descripcion:"></textarea>
 				<br>
 				<!--El botón de abajo precisa ser del tipo submit para poder enviar el formulario de forma adecuada al servidor. -->
 				<input id="boton" type="submit" name="enviarForm" value="Enviar" onclick="return validar(this.form)">
@@ -47,5 +50,6 @@
 		</form>
 		<br>
 		<div id="resultado"></div>
+		<a href="index.html">Para volver a la página de inicio clicar aquí.</a><br>
 	</body>
 </html>
