@@ -1,18 +1,27 @@
 #TITULO_PRINCIPAL{
-	font-size: 70px;
+	font-size: 200%;
 	text-align: center;
-	margin-top: 70px;
-	margin-bottom: 30px;
+	margin-bottom: 20%;
 }
 
-body{
-	background-color: rgb(204, 255, 255);
+html{
+	background-image: url("matrix_background.gif");
+	height: 100%;
+	display: table;
+	margin: auto;
+}
+#index{	
 	color: black;
+	background-color: white;
 }
-
-#links_compra_venta{
-	font-size: 30px;
-	margin-left: 140px;
+#vender-logo,#comprar-logo{
+	vertical-align: left;
+	height: 100%;
+	width: 100%;
+	margin-top: -15%;
+	margin-bottom: -15%;
+	margin-right: 20%;
+	size: 50%;
 }
 
 #VENDER_HTML{
