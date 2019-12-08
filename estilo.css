@@ -16,6 +16,9 @@ html{
 	background-repeat: no-repeat; 
 	background-size: cover;
 }
+input{
+	border-radius: 10px;	
+}
 .logos:hover{
 	opacity: 0.9;
 	filter: alpha(opacity = 0.9);
@@ -30,7 +33,7 @@ html{
 	width: 100%;
 	text-align: center;
 }
-/* Clear floats after image containers */
+
 .idx_img::after {
   content: "";
   clear: both;
@@ -56,11 +59,30 @@ html{
 	font-size: 20px;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
+#vender_body{
+	background-color: rgba(200,200,200,0.5);
+	border-radius: 10px;
+	vertical-align: center;
+	text-align: center;
+}
 #datos_contacto{
 	margin-left: 20px;
 }
-
+#boton{
+	vertical-align: center;
+	width: 95%;
+	height: 35px;
+	border-radius: 20px;
+}
+#file{
+	border-color: black;
+	border-radius: 0px;
+}
+#textarea{
+	border-radius: 10px;
+	width: 95%;
+	padding: 10px;
+}
 #datos_producto{
 	margin-left: 20px;
 }
@@ -72,6 +94,8 @@ html{
 #volver_indice{
 	font-size: 20px;
 	margin-left: 550px;
+	text-decoration-color: cyan;
+	color: blue;
 }
 
 #tit_vender{
