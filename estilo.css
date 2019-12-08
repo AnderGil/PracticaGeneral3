@@ -16,6 +16,14 @@ html{
 	background-repeat: no-repeat; 
 	background-size: cover;
 }
+.logos:hover{
+	opacity: 0.9;
+	filter: alpha(opacity = 0.9);
+}
+.logo:hover{
+	opacity: 0.9;
+	filter: alpha(opacity = 0.9);
+}
 #index{	
 	color: black;
 	height: 100%;
