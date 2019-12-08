@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="index">
 <head>
   <meta charset="utf-8">
   <title>WallaPoop Musical</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, height=device-height ,initial-scale=1.0">
   <script type="text/javascript" src="jsfile.js"></script>
   <link rel="stylesheet" type = "text/css" href="estilo.css">
+  <style>
+	* {
+	  box-sizing: border-box;
+	}
+  </style>
 </head>
-
-<body id="index">
-<h1 id="TITULO_PRINCIPAL">¡Bienvenido a: WallaPoop Musical!</h1>
-  <a id="links_compra_venta" href="comprar.php"><img id="comprar-logo" src="shop.png" alt="comprar producto"></a>
-  
-  <a id="links_compra_venta" href="vender.html"><img id="vender-logo" src="sale.jpg" alt="vender producto"></a>
+<body >
+  <h1 id="TITULO_PRINCIPAL">¡Bienvenido a: WallaPoop Musical!</h1>
+  <div class="idx_img">
+    <span class="logos">
+	  <a href="comprar.php"><img class="logo" id="shop" src="shop.png" alt="comprar producto" style="width:50%"></a>
+	</span>
+	<span class="logo">
+	  <a href="vender.html"><img class="logo" id="sale" src="sale.png" alt="vender producto" style="width:50%"></a>
+	</span>
+  </div>
 </body>
 </html>

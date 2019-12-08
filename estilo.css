@@ -1,29 +1,49 @@
 #TITULO_PRINCIPAL{
 	font-size: 200%;
 	text-align: center;
-	margin-bottom: 20%;
+	margin-bottom: auto;
+	text-shadow: white;
+	background-image: linear-gradient(yellow,orange);
+	border-radius: 500px;
 }
 
 html{
-	background-image: url("matrix_background.gif");
-	height: 100%;
-	display: table;
+	background-color: transparent;
+	background-image: url("instrumentos.jpg");
+	background-size: auto;
 	margin: auto;
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
 }
 #index{	
 	color: black;
-	background-color: white;
-}
-#vender-logo,#comprar-logo{
-	vertical-align: left;
 	height: 100%;
 	width: 100%;
-	margin-top: -15%;
-	margin-bottom: -15%;
-	margin-right: 20%;
-	size: 50%;
+	text-align: center;
 }
-
+/* Clear floats after image containers */
+.idx_img::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.logos{
+	height: auto;
+	float: center;
+  	padding: auto;
+  	margin: auto;
+}
+.logo{
+	border-radius: 30px;
+}
+#sale{
+	margin-top: -5%;
+	padding-bottom: -5%;
+}
+#shop{
+	margin-top: 2%
+}
 #VENDER_HTML{
 	font-size: 20px;
 	font-family: Arial, Helvetica, sans-serif;
