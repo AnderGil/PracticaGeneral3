@@ -8,8 +8,11 @@
 
 	</head>
 	<body>
+		<div class="titulo">
+			<h1>Wallapoop musical</h1>
+		</div>
 		<div class="filtro">
-			<aside>
+			<div class="filtro_texto">
 				<form>
 					<p>Para buscar un tipo concreto de producto:</p>
 					<input type="radio" name="categoria" id="viento" value="viento" > Instrumentos de viento<br>
@@ -21,17 +24,13 @@
 
 					<!--El botón de abajo precisa ser del tipo submit para poder enviar el formulario de forma adecuada al servidor. -->
 					<a href="javascript:filtrar(this.form)">
-						<input id="boton" type="button" name="filtrar" value="Filtrar">
+						<input class="boton" type="button" name="filtrar" value="Filtrar">
 					</a>
 				</form>
-			</aside>
+			</div>
 		</div>
 
-		<div class="p1">
-			<h1>Wallapop</h1>
-
-		</div>
-		<div id="productos">
+		<div class="productos">
 			<p>
 				A continuación se listan los productos:
 			</p>
@@ -40,11 +39,15 @@
 				$productos=simplexml_load_file('productos.xml');
 				foreach($productos->producto as $producto){
 					echo('<span class="producto">'.$producto->productname.'</span><br>');
-					echo('<img src="'.$direccion.$producto['id'].'+0" alt="Foto del producto"><br>');
-					echo('<span class="precio"> precio: '.$producto->precio.' €</span>');
+					if($producto->numImg==-1){
+						echo('<img class="imagen" src="'.$direccion.'default" alt="Foto del producto"><br>');
+					}else{
+						echo('<img class="imagen" src="'.$direccion.$producto['id'].'+0" alt="Foto del producto"><br>');
+					}
+					echo('<span class="precio"> Precio: '.$producto->precio.' €</span>');
 					echo('<form action="ver_producto.php" method="post">');
 					echo('<input type="hidden" name="product_id" value="'.$producto['id'].'">');
-					echo('<input id="boton_ver_mas" type="submit" name="Ver_mas" value="Ver más">');
+					echo('<input class="boton" type="submit" name="Ver_mas" value="Ver más">');
 					echo('</form>');
 					echo('<hr>');
 				}

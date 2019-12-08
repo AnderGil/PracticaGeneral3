@@ -21,12 +21,17 @@ $direccion="images/";
 				{
 					if($producto['id'] == $id)
 					{	
-						echo('<h1>Detalles del producto:</h1><br>');
+						echo('<h1 class="filtro">Detalles del producto:</h1><br>');
 						echo('</div>');
-						echo('<span class="producto">'.$producto->productname.'</span><br>');
-						for($i=0; $i < $producto->numImg; $i++)
-						{
-							echo('<img src="'.$direccion.$producto['id']."+".$i.'" alt="Foto del producto"><br>');
+						echo('<div class="productos">');
+						echo('<span clas="producto" style="font-size:200%">'.$producto->productname.'</span><br>');
+						if($producto->numImg==-1){
+							echo('<img class="imagen" src="'.$direccion.'default" alt="Foto del producto"><br>');
+						}else{				
+							for($i=0; $i < $producto->numImg; $i++)
+							{
+								echo('<img class="imagen" src="'.$direccion.$producto['id']."+".$i.'" alt="Foto del producto"><br>');
+							}
 						}
 						echo('<span class="descripcion">'.$producto->descripcion.'</span><br>');
 						echo('<span class="precio"> precio: '.$producto->precio.' €</span><hr>');
@@ -34,10 +39,11 @@ $direccion="images/";
 						echo('<p> Telefono del vendedor: '.$producto->telefono.'</p>');
 						echo('<p> Correo electrónico del vendedor: '.$producto->email.'</p>');
 						echo('<p> Si está interesado en este producto, por favor póngase en contacto con el vendedor de éste.<p><hr>');
+						echo('<div class = "productos">');
 					}
 				}
 			?>
-			<a href="comprar.php">Haz click aqui para volver a la lista de productos.</a>
+			<a id="volver" href="comprar.php">Haz click aqui para volver a la lista de productos.</a>
 		</div>
 	</body>
 </html>
