@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 	<head>
 		<title>Wallapop</title>
 		<meta charset="UTF-8">
@@ -12,6 +12,8 @@
 			<h1>Wallapoop musical</h1>
 		</div>
 		<div class="filtro">
+			<a class="volver" href="index.html">Haz click aqui para volver a la página de inicio.</a>
+
 			<div class="filtro_texto">
 				<form>
 					<p>Para buscar un tipo concreto de producto:</p>
@@ -30,7 +32,7 @@
 			</div>
 		</div>
 
-		<div class="productos">
+		<div id="productos">
 			<p>
 				A continuación se listan los productos:
 			</p>

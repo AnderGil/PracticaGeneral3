@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--Ander Gil, Aitor Gonzalez-->
-<html id="VENDER_HTML" style="background-image: url('instrumentos_transparente.png')">
+<html lang="es" id="VENDER_HTML">
 	<head>
 		<title>Vender producto.</title>
 		<meta charset="UTF-8">
@@ -8,8 +8,8 @@
 		<!-- No olvides poner el nombre de tu fichero javascript en el atributo 'src' de la etiqueta 'script' -->
 		<script type="text/javascript" src="validar_venta.js"></script>
 	</head>
-	<body onload="init()">
-		<div class="tit_vender">¡Pon tu producto a la venta!</div><br><a id="volver_indice" href="index.html">Volver</a><br>
+	<body onload="init()" id="vender_body">
+		<div id="tit_vender">¡Pon tu producto a la venta!</div><br><a id="volver_indice" href="index.html" style="margin-left: 75%">Volver</a><br>
 		<br><div id="resultado"></div>
 		<form action="poner_a_la_venta.php" id="form" method="post" enctype="multipart/form-data">
 			<div class="contacto">
@@ -44,13 +44,12 @@
 				<input style="margin-left: 20px" type="radio" id="2" name="categoria" value="percusion" > Percusion<br>
 				<input style="margin-left: 20px" type="radio" id="3" name="categoria" value="cuerda" > Cuerda<br>
 				<input style="margin-left: 20px" type="radio" id="4" name="categoria" value="electrico" > Electrico<br>
-				<input style="margin-left: 20px" type="radio" id="5" name="categoria" value="complementos" > Complementos<br>
-				<br>
-				Descripción:
-				
+				<input style="margin-left: 20px" type="radio" id="5" name="categoria" value="complementos" > Complementos<br>				
 			</div>
 
 			<div id="descripcion">
+				<br>
+				Descripción:
 				<textarea id="textarea" rows="4" cols="120" name="descripcion" placeholder="Escribe aquí tu descripcion:"></textarea>
 				<br>
 				<!--El botón de abajo precisa ser del tipo submit para poder enviar el formulario de forma adecuada al servidor. -->

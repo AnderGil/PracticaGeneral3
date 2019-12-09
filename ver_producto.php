@@ -8,7 +8,7 @@ $direccion="images/";
 
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 	<head>
 		<title>WallaPop musical</title>
 		<meta charset="UTF-8">
@@ -24,7 +24,7 @@ $direccion="images/";
 						echo('<h1 class="filtro">Detalles del producto:</h1><br>');
 						echo('</div>');
 						echo('<div class="productos">');
-						echo('<span clas="producto" style="font-size:200%">'.$producto->productname.'</span><br>');
+						echo('<span class="producto" style="font-size:200%">'.$producto->productname.'</span><br>');
 						if($producto->numImg==-1){
 							echo('<img class="imagen" src="'.$direccion.'default" alt="Foto del producto"><br>');
 						}else{				
@@ -39,7 +39,6 @@ $direccion="images/";
 						echo('<p> Telefono del vendedor: '.$producto->telefono.'</p>');
 						echo('<p> Correo electrónico del vendedor: '.$producto->email.'</p>');
 						echo('<p> Si está interesado en este producto, por favor póngase en contacto con el vendedor de éste.<p><hr>');
-						echo('<div class = "productos">');
 					}
 				}
 			?>

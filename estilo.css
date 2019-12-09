@@ -15,6 +15,16 @@ html{
 	background-position: center; 
 	background-repeat: no-repeat; 
 	background-size: cover;
+	background-attachment: fixed;
+}
+input{
+	border-radius: 10px;	
+	text-align: center;
+
+}
+.logo:hover{
+	opacity: 0.9;
+	filter: alpha(opacity = 0.9);
 }
 #index{	
 	color: black;
@@ -22,24 +32,18 @@ html{
 	width: 100%;
 	text-align: center;
 }
-.logo{
-	border-radius: 30px;
-	height: 50%;
-	float: center;
-  	padding: auto;
-  	margin: auto;
-  	width: 50%;
-  	text-align: center;
-}
-.logo:hover{
-	opacity: 0.9;
-	filter: alpha(opacity = 0.9);
-}
-/* Clear floats after image containers */
+
 .idx_img::after {
   content: "";
   clear: both;
   display: table;
+}
+.logo{
+	height: auto;
+	float: center;
+  	padding: auto;
+  	margin: auto;
+  	border-radius: 30px;
 }
 
 #sale{
@@ -53,14 +57,38 @@ html{
 	font-size: 20px;
 	font-family: Arial, Helvetica, sans-serif;
 }
-#tit_vender{
-	font-size: 40px;
-	margin-bottom: -60px;
+#vender_body{
+	background-image: linear-gradient(to bottom right,rgba(248,218,81,0.8), rgba(235,175,88,0.8));
+	border-radius: 10px;
+	vertical-align: center;
+	text-align: center;
+}
+#poner_venta_body{
+	background-image: linear-gradient(to bottom right,rgba(248,218,81,0.8), rgba(235,175,88,0.8));
+	border-radius: 10px;
+	vertical-align: center;
+	text-align: center;
+	padding-bottom: 2%;
+	margin-top: 15%;
 }
 #datos_contacto{
 	margin-left: 20px;
 }
-
+#boton{
+	vertical-align: center;
+	width: 95%;
+	height: 35px;
+	border-radius: 20px;
+}
+#file{
+	border-color: black;
+	border-radius: 0px;
+}
+#textarea{
+	border-radius: 10px;
+	width: 95%;
+	padding: 10px;
+}
 #datos_producto{
 	margin-left: 20px;
 }
@@ -69,23 +97,25 @@ html{
 	margin-left: 20px;
 }
 
-#volver_indice{
-	font-size: 20px;
-	margin-left: 550px;
+a{
+	font-size: 100%;
+	text-decoration-color: cyan;
+	color: blue;
 }
 
+#tit_vender{
+	font-size: 40px;
+	margin-bottom: -60px;
+}
+
+#resultado{
+	color: red;
+}
 .titulo{
 	font-size: 200%;
 	text-align: center;
 	color: rgb(181, 94, 47 );
 	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-}
-#productos{
-	text-align: center;
-}
-
-#resultado{
-	color: red;
 }
 .filtro{
 	background-image: linear-gradient(to bottom right,rgba(248,218,81,0.8), rgba(235,175,88,0.8));
@@ -114,12 +144,19 @@ html{
 	text-align: center;
 	font-size: 150%;
 }
+#productos{
+	margin:2%;
+	background-image: linear-gradient(to bottom right,rgba(171, 45, 133,0.8), rgba(220, 101, 184 ,0.8));
+	border: solid black 1px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 150%;
+}
 .imagen{
 	max-width: 75%;
   	height: auto;
   	margin-top: 2%;
 }
-a{
-	color: solid black;
+.title{
+	text-align: center;
 }
-

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 	<head>
 		<title>Comentario enviado</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="estilo.css">
 	</head>
 
-	<body>
+	<body id="poner_venta_body">
 <?php
     $continue=False;
     if (isset($_POST['username'])  || isset($_POST['correo']) || isset($_POST['telefono']) || isset($_POST['precio']) || isset($_POST['categoria']) || isset($_POST['descripcion']) || isset($_POST['precio']) || isset($_POST['productname']) ){
