@@ -16,38 +16,32 @@ html{
 	background-repeat: no-repeat; 
 	background-size: cover;
 }
-input{
-	border-radius: 10px;	
-}
-.logos:hover{
-	opacity: 0.9;
-	filter: alpha(opacity = 0.9);
-}
-.logo:hover{
-	opacity: 0.9;
-	filter: alpha(opacity = 0.9);
-}
 #index{	
 	color: black;
 	height: 100%;
 	width: 100%;
 	text-align: center;
 }
-
+.logo{
+	border-radius: 30px;
+	height: 50%;
+	float: center;
+  	padding: auto;
+  	margin: auto;
+  	width: 50%;
+  	text-align: center;
+}
+.logo:hover{
+	opacity: 0.9;
+	filter: alpha(opacity = 0.9);
+}
+/* Clear floats after image containers */
 .idx_img::after {
   content: "";
   clear: both;
   display: table;
 }
-.logos{
-	height: auto;
-	float: center;
-  	padding: auto;
-  	margin: auto;
-}
-.logo{
-	border-radius: 30px;
-}
+
 #sale{
 	margin-top: -5%;
 	padding-bottom: -5%;
@@ -59,30 +53,14 @@ input{
 	font-size: 20px;
 	font-family: Arial, Helvetica, sans-serif;
 }
-#vender_body{
-	background-color: rgba(200,200,200,0.5);
-	border-radius: 10px;
-	vertical-align: center;
-	text-align: center;
+#tit_vender{
+	font-size: 40px;
+	margin-bottom: -60px;
 }
 #datos_contacto{
 	margin-left: 20px;
 }
-#boton{
-	vertical-align: center;
-	width: 95%;
-	height: 35px;
-	border-radius: 20px;
-}
-#file{
-	border-color: black;
-	border-radius: 0px;
-}
-#textarea{
-	border-radius: 10px;
-	width: 95%;
-	padding: 10px;
-}
+
 #datos_producto{
 	margin-left: 20px;
 }
@@ -94,15 +72,54 @@ input{
 #volver_indice{
 	font-size: 20px;
 	margin-left: 550px;
-	text-decoration-color: cyan;
-	color: blue;
 }
 
-#tit_vender{
-	font-size: 40px;
-	margin-bottom: -60px;
+.titulo{
+	font-size: 200%;
+	text-align: center;
+	color: rgb(181, 94, 47 );
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+#productos{
+	text-align: center;
 }
 
 #resultado{
 	color: red;
 }
+.filtro{
+	background-image: linear-gradient(to bottom right,rgba(248,218,81,0.8), rgba(235,175,88,0.8));
+	border: solid black 1px;
+	border-radius: 10px;
+	width: 75%;
+  	margin: 0 auto;
+  	text-align: center;
+}
+.filtro_texto{
+	margin: 2%;
+	font-size: 100%;
+}
+.boton{
+	margin-top: 1%;
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	border-radius: 10px;
+}
+.productos{
+	margin:2%;
+	background-image: linear-gradient(to bottom right,rgba(171, 45, 133,0.8), rgba(220, 101, 184 ,0.8));
+	border: solid black 1px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 150%;
+}
+.imagen{
+	max-width: 75%;
+  	height: auto;
+  	margin-top: 2%;
+}
+a{
+	color: solid black;
+}
+
